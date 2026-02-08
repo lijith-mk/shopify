@@ -1,0 +1,9 @@
+# Jest setup file
+jest.setup.js
+
+# Build artifacts
+node_modules/
+android/
+ios/
+build/
+.bundle/

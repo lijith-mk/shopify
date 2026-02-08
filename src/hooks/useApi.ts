@@ -23,10 +23,10 @@ export const useApi = <T>(
         options?.onSuccess?.(result);
         return result;
       } catch (err) {
-        const error = err instanceof Error ? err : new Error('Unknown error');
-        setError(error);
-        options?.onError?.(error);
-        throw error;
+        const apiError = err instanceof Error ? err : new Error('Unknown error');
+        setError(apiError);
+        options?.onError?.(apiError);
+        throw apiError;
       } finally {
         setLoading(false);
       }

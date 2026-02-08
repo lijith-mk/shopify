@@ -1,39 +1,39 @@
 /**
  * Shopify Shopping Cart App
- * Built with React Native CLI, TypeScript
+ * Built with React Native CLI, TypeScript, React Navigation 7
  *
  * @format
  */
 
-import React, {useState} from 'react';
-import {StatusBar, StyleSheet, View} from 'react-native';
-import {CartProvider} from './src/context/CartContext';
-import {HomeScreen} from './src/screens/HomeScreen';
-import {CartScreen} from './src/screens/CartScreen';
-
-type Screen = 'home' | 'cart';
+import React from 'react';
+import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {store} from './src/redux';
+import {RootNavigator} from './src/navigation/RootNavigator';
+import {linkingConfig} from './src/navigation/linking';
+import {colors} from './src/theme';
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState<Screen>('home');
-
   return (
-    <CartProvider>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      <View style={styles.container}>
-        {currentScreen === 'home' ? (
-          <HomeScreen onNavigateToCart={() => setCurrentScreen('cart')} />
-        ) : (
-          <CartScreen onNavigateBack={() => setCurrentScreen('home')} />
-        )}
-      </View>
-    </CartProvider>
+    <GestureHandlerRootView style={styles.root}>
+      <Provider store={store}>
+        <NavigationContainer linking={linkingConfig}>
+          <StatusBar
+            barStyle="dark-content"
+            backgroundColor={colors.white}
+            translucent={false}
+          />
+          <RootNavigator />
+        </NavigationContainer>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+const styles = {
+  root: {flex: 1},
+};
 
 export default App;

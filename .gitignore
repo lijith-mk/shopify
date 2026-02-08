@@ -1,9 +1,25 @@
+# ==========================================
 # OSX
-#
+# ==========================================
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
 
-# Xcode
-#
+# ==========================================
+# Windows
+# ==========================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# Xcode / iOS
+# ==========================================
 build/
 *.pbxuser
 !default.pbxuser
@@ -21,9 +37,16 @@ DerivedData
 *.ipa
 *.xcuserstate
 **/.xcode.env.local
+ios/Pods/
+ios/build/
+*.dSYM.zip
+*.dSYM
+ios/*.xcworkspace
+!ios/*.xcworkspace/contents.xcworkspacedata
 
-# Android/IntelliJ
-#
+# ==========================================
+# Android / IntelliJ
+# ==========================================
 build/
 .idea
 .gradle
@@ -34,42 +57,148 @@ local.properties
 *.keystore
 !debug.keystore
 .kotlin/
+android/app/build/
+android/build/
+android/.gradle/
+android/app/release/
+android/app/debug/
+*.apk
+*.aab
 
-# node.js
-#
+# ==========================================
+# Node.js
+# ==========================================
 node_modules/
 npm-debug.log
 yarn-error.log
+yarn.log
+lerna-debug.log
+.npm
+.eslintcache
+.node_repl_history
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# ==========================================
+# Package Managers
+# ==========================================
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
+# ==========================================
+# Environment Variables (IMPORTANT!)
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# ==========================================
+# IDEs & Editors
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ==========================================
+# React Native
+# ==========================================
+.expo/
+.expo-shared/
+dist/
+.dist/
+web-build/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+.metro-health-check*
+.metro/
+
+# ==========================================
+# Fastlane
+# ==========================================
 **/fastlane/report.xml
 **/fastlane/Preview.html
 **/fastlane/screenshots
 **/fastlane/test_output
+**/fastlane/builds
 
-# Bundle artifact
+# ==========================================
+# Bundle Artifacts
+# ==========================================
 *.jsbundle
+*.bundle
+*.hbc
 
+# ==========================================
 # Ruby / CocoaPods
+# ==========================================
 **/Pods/
 /vendor/bundle/
+ios/Podfile.lock
 
-# Temporary files created by Metro to check the health of the file watcher
-.metro-health-check*
-
-# testing
+# ==========================================
+# Testing
+# ==========================================
 /coverage
+.nyc_output/
+.jest/
 
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log
+
+# ==========================================
+# TypeScript
+# ==========================================
+*.tsbuildinfo
+
+# ==========================================
+# Temporary Files
+# ==========================================
+tmp/
+temp/
+
+# ==========================================
+# Buck
+# ==========================================
+buck-out/
+.buckconfig.local
+.buckd/
+.fakebuckversion
+
+# ==========================================
 # Yarn
+# ==========================================
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# ==========================================
+# Sensitive & Config Files
+# ==========================================
+# Add your API keys and secrets here
+config/secrets.yml
+config/database.yml
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+.cache
+.parcel-cache

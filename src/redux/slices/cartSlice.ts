@@ -48,13 +48,13 @@ const cartSlice = createSlice({
       action: PayloadAction<{productId: string; quantity: number}>,
     ) => {
       const item = state.items.find(
-        item => item.product.id === action.payload.productId,
+        cartItem => cartItem.product.id === action.payload.productId,
       );
 
       if (item) {
         if (action.payload.quantity <= 0) {
           state.items = state.items.filter(
-            item => item.product.id !== action.payload.productId,
+            cartItem => cartItem.product.id !== action.payload.productId,
           );
         } else {
           item.quantity = action.payload.quantity;

@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
-import {API_CONFIG, HTTP_STATUS, STORAGE_KEYS} from '../constants';
-import {storage} from '../utils';
+import {API_CONFIG, HTTP_STATUS, STORAGE_KEYS} from '../../constants';
+import {storage} from '../../utils';
 
 class ApiClient {
   private client: AxiosInstance;
