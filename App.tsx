@@ -1,38 +1,32 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Shopify Shopping Cart App
+ * Built with React Native CLI, TypeScript
  *
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import React, {useState} from 'react';
+import {StatusBar, StyleSheet, View} from 'react-native';
+import {CartProvider} from './src/context/CartContext';
+import {HomeScreen} from './src/screens/HomeScreen';
+import {CartScreen} from './src/screens/CartScreen';
+
+type Screen = 'home' | 'cart';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [currentScreen, setCurrentScreen] = useState<Screen>('home');
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <CartProvider>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+      <View style={styles.container}>
+        {currentScreen === 'home' ? (
+          <HomeScreen onNavigateToCart={() => setCurrentScreen('cart')} />
+        ) : (
+          <CartScreen onNavigateBack={() => setCurrentScreen('home')} />
+        )}
+      </View>
+    </CartProvider>
   );
 }
 
